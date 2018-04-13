@@ -3,7 +3,6 @@
 {% set bundle = "tar.gz" %}
 {% set hash_type = "sha256" %}
 {% set hash = "4830699be53f9154273fa15726fc8b0c90bc22bbb8fc7c932586503b3cb9330e" %}
-{% set build = 1 %}
 
 package:
   name: {{ name|lower }}
@@ -11,23 +10,24 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.{{ bundle }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
   {{ hash_type }}: {{ hash }}
 
 build:
   noarch: python
   number: 0
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
     - python
-    - setuptools
+    - pip
 
   run:
     - python
     - six >=1.10.0
-    - promise >=2.0
+    - promise >=2.1
+    - rx >=1.6.0
 
 test:
   imports:
@@ -45,7 +45,7 @@ test:
 
 about:
   home: https://github.com/graphql-python/graphql-core
-  license_file: {{ RECIPE_DIR }}/LICENSE
+  license_file: LICENSE
   license: MIT
   license_family: MIT
   summary: 'GraphQL implementation for Python'
