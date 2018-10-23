@@ -29,16 +29,6 @@ requirements:
 test:
   imports:
     - graphql
-    - graphql.error
-    - graphql.execution
-    - graphql.execution.executors
-    - graphql.execution.experimental
-    - graphql.language
-    - graphql.pyutils
-    - graphql.type
-    - graphql.utils
-    - graphql.validation
-    - graphql.validation.rules
 
 about:
   home: https://github.com/graphql-python/graphql-core
