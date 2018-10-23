@@ -23,7 +23,7 @@ requirements:
   run:
     - python
     - six >=1.10.0
-    - promise >=2.0
+    - promise >=2.1
     - rx >=1.6.0
 
 test:
