@@ -1,7 +1,5 @@
 {% set name = "graphql-core" %}
 {% set version = "2.0" %}
-{% set hash_type = "sha256" %}
-
 
 package:
   name: {{ name|lower }}
@@ -36,7 +34,6 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: 'GraphQL base implementation for Python'
-  doc_url: http://graphql.org/
   dev_url: https://github.com/graphql-python/graphql-core
 
 extra:
