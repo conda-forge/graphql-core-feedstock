@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
@@ -22,7 +22,7 @@ requirements:
     - python
     - six >=1.10.0
     - promise >=2.1
-    - rx >=1.6.0
+    - rx >=1.6,<3
 
 test:
   imports:
