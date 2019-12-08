@@ -16,25 +16,21 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
   run:
-    - python
-    - six >=1.10.0
-    - promise >=2.1
-    - rx >=1.6,<3
+    - python >=3.6
 
 test:
   imports:
     - graphql
 
 about:
-  home: https://github.com/graphql-python/graphql-core
+  home: https://github.com/graphql-python/graphql-core-next
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'GraphQL base implementation for Python'
-  dev_url: https://github.com/graphql-python/graphql-core
+  summary: 'A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.'
 
 extra:
   recipe-maintainers:
