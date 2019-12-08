@@ -2,7 +2,7 @@
 {% set version = "3.0.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
@@ -12,7 +12,9 @@ source:
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script:
+    - python -c '__import__("os").unlink("pyproject.toml")'
+    - "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
@@ -24,6 +26,17 @@ requirements:
 test:
   imports:
     - graphql
+  # TODO: uncomment when pytest-describe is available
+  # source_files:
+  #   - tests
+  # requires:
+  #   - pytest >=5.3,<5.4
+  #   - pytest-asyncio >=0.10,<1
+  #   - pytest-benchmark >=3.2,<4
+  #   - pytest-cov >=2.8,<3
+  #   - pytest-describe >=0.12,<1
+  # commands:
+  #   - pytest
 
 about:
   home: https://github.com/graphql-python/graphql-core-next
