@@ -1,40 +1,49 @@
 {% set name = "graphql-core" %}
-{% set version = "2.2" %}
+{% set version = "3.0.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 60ef8277b82aaad49e87154a0288a9542a82a63909568375712f826b1c280ef5
+  sha256: 1bd80ea6674638959838ae4ae93da0a06bea3ebed775fd5a25fe6e71e3138f5e
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script:
+    - python -c '__import__("os").unlink("pyproject.toml")'
+    - "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
   run:
-    - python
-    - six >=1.10.0
-    - promise >=2.1
-    - rx >=1.6.0
+    - python >=3.6
 
 test:
   imports:
     - graphql
+  source_files:
+    - tests
+  requires:
+    - pytest >=5.3,<5.4
+    - pytest-asyncio >=0.10,<1
+    - pytest-benchmark >=3.2,<4
+    - pytest-cov >=2.8,<3
+    - pytest-describe >=0.12,<1
+  commands:
+    - python -c '__import__("os").unlink("tests/test_docs.py")'
+    - pytest --cov graphql
 
 about:
-  home: https://github.com/graphql-python/graphql-core
+  home: https://github.com/graphql-python/graphql-core-next
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'GraphQL base implementation for Python'
-  dev_url: https://github.com/graphql-python/graphql-core
+  summary: 'A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.'
 
 extra:
   recipe-maintainers:
