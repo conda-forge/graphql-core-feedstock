@@ -26,17 +26,16 @@ requirements:
 test:
   imports:
     - graphql
-  # TODO: uncomment when pytest-describe is available
-  # source_files:
-  #   - tests
-  # requires:
-  #   - pytest >=5.3,<5.4
-  #   - pytest-asyncio >=0.10,<1
-  #   - pytest-benchmark >=3.2,<4
-  #   - pytest-cov >=2.8,<3
-  #   - pytest-describe >=0.12,<1
-  # commands:
-  #   - pytest
+  source_files:
+    - tests
+  requires:
+    - pytest >=5.3,<5.4
+    - pytest-asyncio >=0.10,<1
+    - pytest-benchmark >=3.2,<4
+    - pytest-cov >=2.8,<3
+    - pytest-describe >=0.12,<1
+  commands:
+    - pytest
 
 about:
   home: https://github.com/graphql-python/graphql-core-next
