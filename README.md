@@ -1,13 +1,13 @@
 About graphql-core
 ==================
 
-Home: https://github.com/graphql-python/graphql-core
+Home: https://github.com/graphql-python/graphql-core-next
 
 Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
-Summary: GraphQL base implementation for Python
+Summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
 
 
 
