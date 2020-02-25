@@ -1,5 +1,5 @@
 {% set name = "graphql-core" %}
-{% set version = "3.0.3" %}
+{% set version = "2.3.1" %}
 
 package:
   name: {{ name }}
@@ -7,43 +7,34 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 31e9e62967cc3cb1afc0d4752e2576633adebbdcb14b4c62b9055413c239a48d
+  sha256: 74a8f509ae8c4a58271f5d6b46d5c75b4aed116821ab62dea252d8041bfe057a
 
 build:
   noarch: python
   number: 0
   script:
-    - python -c '__import__("os").unlink("pyproject.toml")'
     - "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
   run:
-    - python >=3.6
+    - python
+    - six >=1.10.0
+    - promise >=2.3,<3
+    - rx >=1.6,<2
 
 test:
   imports:
     - graphql
-  source_files:
-    - tests
-  requires:
-    - pytest >=5.3,<5.4
-    - pytest-asyncio >=0.10,<1
-    - pytest-benchmark >=3.2,<4
-    - pytest-cov >=2.8,<3
-    - pytest-describe >=0.12,<1
-  commands:
-    - python -c '__import__("os").unlink("tests/test_docs.py")'
-    - pytest --cov graphql
 
 about:
-  home: https://github.com/graphql-python/graphql-core-next
+  home: https://github.com/graphql-python/graphql-core
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.'
+  summary: 'A Pythonport of the GraphQL.js reference implementation of GraphQL.'
 
 extra:
   recipe-maintainers:
