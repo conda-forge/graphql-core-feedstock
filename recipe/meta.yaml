@@ -1,5 +1,5 @@
 {% set name = "graphql-core" %}
-{% set version = "3.0.3" %}
+{% set version = "3.0.4" %}
 
 package:
   name: {{ name }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 31e9e62967cc3cb1afc0d4752e2576633adebbdcb14b4c62b9055413c239a48d
+  sha256: 35cbc459d54169d1b897def18d297329cb1a38cb311fe7876b72457f87dfcc5d
 
 build:
   noarch: python
   number: 0
   script:
     - python -c '__import__("os").unlink("pyproject.toml")'
-    - "{{ PYTHON }} -m pip install . -vv"
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -43,7 +43,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.'
+  summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
 
 extra:
   recipe-maintainers:
