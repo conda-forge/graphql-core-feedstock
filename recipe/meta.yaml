@@ -41,11 +41,12 @@ test:
     - pytest --cov graphql
 
 about:
-  home: https://github.com/graphql-python/graphql-core-next
+  home: https://github.com/graphql-python/graphql-core
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
+  doc_url: https://graphql-core-3.readthedocs.io
 
 extra:
   recipe-maintainers:
