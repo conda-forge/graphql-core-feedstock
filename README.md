@@ -1,7 +1,7 @@
 About graphql-core
 ==================
 
-Home: https://github.com/graphql-python/graphql-core-next
+Home: https://github.com/graphql-python/graphql-core
 
 Package license: MIT
 
