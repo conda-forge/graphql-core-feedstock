@@ -34,7 +34,9 @@ test:
     - pytest-benchmark >=3.2,<4
     - pytest-cov >=2.8,<3
     - pytest-describe >=0.12,<1
+    - pip
   commands:
+    - python -m pip check
     - python -c '__import__("os").unlink("tests/test_docs.py")'
     - pytest --cov graphql
 
