@@ -1,5 +1,5 @@
 {% set name = "graphql-core" %}
-{% set version = "3.1.0" %}
+{% set version = "2.3.2" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d43cf1f149772c7014656d4bc4c512278a16722e80e4be2daf99894ffef871db
+  sha256: aac46a9ac524c9855910c14c48fc5d60474def7f99fd10245e76608eba7af746
 
 build:
   noarch: python
@@ -18,34 +18,24 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
   run:
-    - python >=3.6
+    - promise >=2.3,<3
+    - python
+    - rx >=1.6,<2
+    - six >=1.10.0
 
 test:
   imports:
     - graphql
-  source_files:
-    - tests
-  requires:
-    - pytest >=5.3,<5.4
-    - pytest-asyncio >=0.10,<1
-    - pytest-benchmark >=3.2,<4
-    - pytest-cov >=2.8,<3
-    - pytest-describe >=0.12,<1
-    - pip
-  commands:
-    - python -m pip check
-    - python -c '__import__("os").unlink("tests/test_docs.py")'
-    - pytest --cov graphql
 
 about:
-  home: https://github.com/graphql-python/graphql-core
+  home: https://github.com/graphql-python/graphql-core-legacy
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
+  summary: A Python port of the GraphQL.js reference implementation of GraphQL.
   doc_url: https://graphql-core-3.readthedocs.io
 
 extra:
@@ -53,3 +43,4 @@ extra:
     - pmlandwehr
     - carlodri
     - bollwyvl
+    - KingDarBoja
