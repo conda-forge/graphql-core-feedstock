@@ -1,13 +1,13 @@
 About graphql-core
 ==================
 
-Home: https://github.com/graphql-python/graphql-core
+Home: https://github.com/graphql-python/graphql-core-legacy
 
 Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
-Summary: A Pythonport of the GraphQL.js reference implementation of GraphQL.
+Summary: A Python port of the GraphQL.js reference implementation of GraphQL.
 
 
 
@@ -116,6 +116,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@KingDarBoja](https://github.com/KingDarBoja/)
 * [@bollwyvl](https://github.com/bollwyvl/)
 * [@carlodri](https://github.com/carlodri/)
 * [@pmlandwehr](https://github.com/pmlandwehr/)
