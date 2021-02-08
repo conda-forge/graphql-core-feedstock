@@ -5,11 +5,11 @@ Home: https://github.com/graphql-python/graphql-core
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/graphql-core-feedstock/blob/master/LICENSE.txt)
 
 Summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
 
-
+Documentation: https://graphql-core-3.readthedocs.io
 
 Current build status
 ====================
