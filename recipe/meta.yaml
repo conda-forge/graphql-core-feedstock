@@ -1,12 +1,11 @@
-{% set name = "graphql-core" %}
 {% set version = "3.1.5" %}
 
 package:
-  name: {{ name }}
+  name: graphql-core
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/g/graphql-core/graphql-core-{{ version }}.tar.gz
   sha256: a755635d1d364a17e8d270347000722351aaa03f1ab7d280878aae82fc68b1f3
 
 build:
@@ -29,16 +28,17 @@ test:
   source_files:
     - tests
   requires:
-    - pytest >=5.4.0,<6
-    - pytest-asyncio >=0.10,<1
-    - pytest-benchmark >=3.2,<4
-    - pytest-cov >=2.8,<3
-    - pytest-describe >=0.12,<1
+    - pytest >=6.2,<7
+    - pytest-asyncio >=0.15,<1
+    - pytest-benchmark >=3.4,<4
+    - pytest-cov >=2.11,<3
+    - pytest-describe >=1,<2
+    - pytest-timeout >=1.4,<2
     - pip
   commands:
-    - python -m pip check
+    - pip check
     - python -c '__import__("os").unlink("tests/test_docs.py")'
-    - pytest --cov graphql
+    - pytest --cov graphql --cov-report term-missing:skip-covered --no-cov-on-fail
 
 about:
   home: https://github.com/graphql-python/graphql-core
