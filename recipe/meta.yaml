@@ -1,4 +1,4 @@
-{% set version = "3.2.0" %}
+{% set version = "3.2.1" %}
 
 package:
   name: graphql-core
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/g/graphql-core/graphql-core-{{ version }}.tar.gz
-  sha256: 86e2a0be008bfde19ef78388de8a725a1d942a9190ca431c24a60837973803ce
+  sha256: 9d1bf141427b7d54be944587c8349df791ce60ade2e3cccaf9c56368c133c201
 
 build:
   noarch: python
