@@ -1,52 +1,60 @@
-{% set version = "3.2.3" %}
+{% set version = "3.3.0a3" %}
 
 package:
   name: graphql-core
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/g/graphql-core/graphql-core-{{ version }}.tar.gz
-  sha256: 06d2aad0ac723e35b1cb47885d3e5c45e956a53bc1b209a9fc5369007fe46676
+  url: https://pypi.io/packages/source/g/graphql-core/graphql_core-{{ version }}.tar.gz
+  sha256: 065d23881d00d0b52b9a7c0a8d63451585549c13f3f05a214923b20dabbda290
 
 build:
   noarch: python
   number: 0
   script:
-    - python -c '__import__("os").unlink("pyproject.toml")'
-    - {{ PYTHON }} -m pip install . -vv
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python >=3.6
     - pip
+    - poetry-core >=1.6,<2
+    - python >=3.7
   run:
-    - python >=3.6
-    - typing_extensions >=4,<5
+    - python >=3.7
+    - typing_extensions >=4.5,<5
 
 test:
   imports:
     - graphql
   source_files:
     - tests
+    - pyproject.toml
   requires:
-    - pytest >=6.2,<7
-    - pytest-asyncio >=0.15,<1
-    - pytest-benchmark >=3.4,<4
-    - pytest-cov >=2.11,<3
-    - pytest-describe >=1,<2
-    - pytest-timeout >=1.4,<2
     - pip
+    - mypy
+    - pytest >=7.3,<8
+    - pytest-asyncio >=0.21,<1
+    - pytest-benchmark >=4,<5
+    - pytest-cov >=4.1,<5
+    - pytest-describe >=2.1,<3
+    - pytest-timeout >=2.1,<3
   commands:
     - pip check
-    - python -c '__import__("os").unlink("tests/test_docs.py")'
-    - pytest --cov graphql --cov-report term-missing:skip-covered --no-cov-on-fail
+    - python -c "__import__('os').unlink('tests/test_docs.py')"
+    {% set skips = [
+      "appsync_subscription_api_key_unauthorized",
+      "appsync_subscription_server_sending_an_error_without_an_id",
+      "websocket_connect_failed_with_authentication_in_connection_init",
+    ] %}
+    - pytest -vv --color=yes --tb=long --cov=graphql --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --k "not ({{ " or ".join(skips) }})" --cov-fail-under=98
+    - mypy -p graphql --no-warn-unused-ignores
 
 about:
   home: https://github.com/graphql-python/graphql-core
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
+  summary: GraphQL-core is a Python port of GraphQL.js, the JavaScript reference implementation for GraphQL.
   doc_url: https://graphql-core-3.readthedocs.io
 
 extra:
