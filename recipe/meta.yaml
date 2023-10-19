@@ -41,12 +41,7 @@ test:
   commands:
     - pip check
     - python -c "__import__('os').unlink('tests/test_docs.py')"
-    {% set skips = [
-      "appsync_subscription_api_key_unauthorized",
-      "appsync_subscription_server_sending_an_error_without_an_id",
-      "websocket_connect_failed_with_authentication_in_connection_init",
-    ] %}
-    - pytest -vv --color=yes --tb=long --cov=graphql --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --k "not ({{ " or ".join(skips) }})" --cov-fail-under=98
+    - pytest -vv --color=yes --tb=long --cov=graphql --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=98
     - mypy -p graphql --no-warn-unused-ignores
 
 about:
