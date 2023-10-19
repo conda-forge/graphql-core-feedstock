@@ -1,13 +1,13 @@
-About graphql-core
-==================
+About graphql-core-feedstock
+============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/graphql-core-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/graphql-python/graphql-core
 
 Package license: MIT
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/graphql-core-feedstock/blob/main/LICENSE.txt)
-
-Summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
+Summary: GraphQL-core is a Python port of GraphQL.js, the JavaScript reference implementation for GraphQL.
 
 Documentation: https://graphql-core-3.readthedocs.io
 
