@@ -11,13 +11,12 @@ source:
 build:
   noarch: python
   number: 0
-  script:
-    - python -c '__import__("os").unlink("pyproject.toml")'
-    - {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
 
 requirements:
   host:
     - python >=3.6
+    - poetry-core >=1.6.1,<2
     - pip
   run:
     - python >=3.6
