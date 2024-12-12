@@ -5,21 +5,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/g/graphql-core/graphql_core-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/g/graphql-core/graphql_core-{{ version }}.tar.gz
   sha256: e671b90ed653c808715645e3998b7ab67d382d55467b7e2978549111bbabf8d5
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - poetry-core >=1.6.1,<2
     - pip
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - typing_extensions >=4,<5
 
 test:
@@ -35,6 +35,7 @@ test:
     - pytest-describe >=1,<2
     - pytest-timeout >=1.4,<2
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
     - python -c '__import__("os").unlink("tests/test_docs.py")'
