@@ -38,16 +38,17 @@ tests:
         - tests/
     requirements:
       run:
-        - pytest >=6.2,<7
-        - pytest-asyncio >=0.15,<1
-        - pytest-benchmark >=3.4,<4
-        - pytest-cov >=2.11,<3
-        - pytest-describe >=1,<2
-        - pytest-timeout >=1.4,<2
+        - pytest >=6.2,<9
+        - pytest-asyncio >=0.16,<1
+        - pytest-benchmark >=3.4,<6
+        - pytest-cov >=4,<7
+        - pytest-describe >=2,<3
+        - pytest-timeout >=2,<3
         - python ${{ python_min }}.*
     script:
       - python -c '__import__("os").unlink("tests/test_docs.py")'
-      - pytest --cov graphql --cov-report term-missing:skip-covered --no-cov-on-fail
+      - coverage run --source graphql --branch -m pytest -vv --tb=long --color=yes
+      - coverage report --show-missing --skip-covered --fail-under=99
 
 about:
   license: MIT
