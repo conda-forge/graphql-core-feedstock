@@ -9,7 +9,7 @@ Package license: MIT
 
 Summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
 
-Documentation: https://graphql-core-3.readthedocs.io
+Documentation: https://graphql-core-3.readthedocs.io/
 
 Current build status
 ====================
