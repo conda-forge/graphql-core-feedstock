@@ -2,7 +2,8 @@
 schema_version: 1
 
 context:
-  version: 3.2.7
+  version: "3.2.8"
+  python_check_max: "3.14"
 
 package:
   name: graphql-core
@@ -10,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/g/graphql-core/graphql_core-${{ version }}.tar.gz
-  sha256: 27b6904bdd3b43f2a0556dad5d579bdfdeab1f38e8e8788e555bdcb586a6f62c
+  sha256: 015457da5d996c924ddf57a43f4e959b0b94fb695b85ed4c29446e508ed65cf3
 
 build:
   number: 0
@@ -23,15 +24,17 @@ requirements:
     - pip
     - poetry-core >=1.6.1,<3
     - python ${{ python_min }}.*
-    - setuptools >=59,<81
+    - setuptools >=59,<83
   run:
     - python >=${{ python_min }}
 
 tests:
   - python:
-      pip_check: true
-      python_version: ${{ python_min }}.*
       imports: graphql
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - ${{ python_check_max }}.*
   - files:
       source:
         - tests/
@@ -52,8 +55,9 @@ tests:
 about:
   license: MIT
   license_file: LICENSE
-  summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
-  homepage: https://github.com/graphql-python/graphql-core
+  summary: GraphQL implementation for Python, a port of GraphQL.js, the JavaScript reference implementation for GraphQL.
+  homepage: https://pypi.org/project/graphql-core
+  repository: https://github.com/graphql-python/graphql-core
   documentation: https://graphql-core-3.readthedocs.io
 
 extra:
