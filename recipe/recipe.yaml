@@ -55,7 +55,7 @@ tests:
 about:
   license: MIT
   license_file: LICENSE
-  summary: A Python 3.6+ port of the GraphQL.js reference implementation of GraphQL.
+  summary: GraphQL implementation for Python, a port of GraphQL.js, the JavaScript reference implementation for GraphQL.
   homepage: https://pypi.org/project/graphql-core
   repository: https://github.com/graphql-python/graphql-core
   documentation: https://graphql-core-3.readthedocs.io
