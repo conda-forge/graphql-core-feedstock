@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "3.2.9"
+  version: "3.2.10"
   python_check_max: "3.14"
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/g/graphql-core/graphql_core-${{ version }}.tar.gz
-  sha256: 7368b30bc3e2fa90978c598ea96be589b37abf846971f404630ba6b9b596e259
+  sha256: 175f909aa876b2eeea4acffc5a6215f6588a32e1e07550e10f68423c5bd9052f
 
 build:
   number: 0
