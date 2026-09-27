@@ -7,7 +7,8 @@ Home: https://pypi.org/project/graphql-core
 
 Package license: MIT
 
-Summary: GraphQL implementation for Python, a port of GraphQL.js, the JavaScript reference implementation for GraphQL.
+Summary: GraphQL implementation for Python, a port of GraphQL.js, the JavaScript
+reference implementation for GraphQL.
 
 Development: https://github.com/graphql-python/graphql-core
 
