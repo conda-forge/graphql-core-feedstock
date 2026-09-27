@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "3.2.12"
+  version: "3.2.13"
   python_check_max: "3.14"
 
 package:
@@ -10,14 +10,14 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/g/graphql-core/graphql_core-${{ version }}.tar.gz
-  sha256: 4579094d5fc8a1a59555a9b18e51b320779d9bbc63e2302c519af0c4919d9543
+  url: https://files.pythonhosted.org/packages/source/g/graphql-core/graphql_core-${{ version }}.tar.gz
+  sha256: bb81dd266d4ab7b591bd976f1b23639d97776cb9ac1a896b4a93c271e11ed618
 
 build:
   number: 0
   noarch: python
   script:
-    - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation --disable-pip-version-check
+    - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
 
 requirements:
   host:
@@ -29,6 +29,11 @@ requirements:
     - python >=${{ python_min }}
 
 tests:
+  - package_contents:
+      strict: true
+      site_packages:
+        - graphql_core/**
+        - grapqhl_core-${{ version }}.dist-info/**
   - python:
       imports: graphql
       pip_check: true
@@ -55,7 +60,9 @@ tests:
 about:
   license: MIT
   license_file: LICENSE
-  summary: GraphQL implementation for Python, a port of GraphQL.js, the JavaScript reference implementation for GraphQL.
+  summary: |-
+    GraphQL implementation for Python, a port of GraphQL.js, the JavaScript
+    reference implementation for GraphQL.
   homepage: https://pypi.org/project/graphql-core
   repository: https://github.com/graphql-python/graphql-core
   documentation: https://graphql-core-3.readthedocs.io
