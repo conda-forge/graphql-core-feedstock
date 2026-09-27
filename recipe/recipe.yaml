@@ -31,9 +31,11 @@ requirements:
 tests:
   - package_contents:
       strict: true
+      files:
+        - etc/conda/test-files/graphql-core/**
       site_packages:
-        - graphql_core/**
-        - grapqhl_core-${{ version }}.dist-info/**
+        - graphql/**
+        - graphql_core-${{ version }}.dist-info/**
   - python:
       imports: graphql
       pip_check: true
