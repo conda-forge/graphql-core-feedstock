@@ -17,14 +17,13 @@ build:
   number: 0
   noarch: python
   script:
-    - ${{ PYTHON }} -m pip install . -vvv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
 
 requirements:
   host:
     - pip
-    - poetry-core >=1,<3
     - python ${{ python_min }}.*
-    - setuptools >=59,<85
+    - uv-build >=0.12,<0.13
   run:
     - python >=${{ python_min }}
 
