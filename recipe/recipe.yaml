@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "3.3.1"
+  version: "3.3.2"
   python_check_max: "3.15"
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/g/graphql-core/graphql_core-${{ version }}.tar.gz
-  sha256: 8d9b6f95fb66b58b260904cf9e191f422782620533ec8fa0c96ab941b6659a2a
+  sha256: 15d6eee7d4364fbc202833bc6bd0d504004d8ae7c0aaf620fa884d8e437622f2
 
 build:
   number: 0
@@ -23,7 +23,7 @@ requirements:
   host:
     - pip
     - python ${{ python_min }}.*
-    - uv-build >=0.12,<0.13
+    - uv-build >=0.13,<0.14
   run:
     - python >=${{ python_min }}
 
