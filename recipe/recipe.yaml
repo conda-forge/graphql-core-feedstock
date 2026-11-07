@@ -23,7 +23,7 @@ requirements:
   host:
     - pip
     - python ${{ python_min }}.*
-    - uv-build >=0.12,<0.13
+    - uv-build >=0.13,<0.14
   run:
     - python >=${{ python_min }}
 
